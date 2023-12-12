@@ -13,7 +13,7 @@ const TaskList = () => {
     const navigate = useNavigate()
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [size, setSize] = useState(2);
+    const [size, setSize] = useState(3);
     const [total, setTotal] = useState(0)
     const [filteredData, setFilteredData] = useState(null);
 
