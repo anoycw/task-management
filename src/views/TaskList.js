@@ -21,7 +21,7 @@ const TaskList = () => {
 
     const tableProps = {
         headers: [
-            { id: "id", label: "#" },
+            { id: "check", label: "" },
             { id: "id", label: "#" },
             { id: "title", label: "Task Title" },
             { id: "description", label: "Description" },
@@ -81,7 +81,6 @@ const TaskList = () => {
                                 <td>{index + 1}</td>
                                 <td>{row?.title || "N/F"}</td>
                                 <td>{row?.description || "N/F"}</td>
-                                {/* <td>{row?.taskdate} {" "} {row?.taskTime}</td> */}
                                 <td>{moment(row?.taskdate)?.format("DD-MM-YYYY")} {" - "} {row?.taskTime}</td>
                                 <td >
                                     <span className={row?.taskStatus == true ? 'bg-success text-white p-2' : 'bg-warning text-white p-2'} style={{ borderRadius: "0.375rem", display: "flex", justifyContent: "center" }}>   {

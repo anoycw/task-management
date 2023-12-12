@@ -2,7 +2,8 @@ import React from 'react'
 import { Field, Form } from 'formik';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 
-const TaskForm = ({ values, formType, errors, getFieldProps }) => {
+const TaskForm = ({ formType, errors, getFieldProps }) => {
+
     return (
         <Form>
             <div className='row'>

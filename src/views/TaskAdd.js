@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import { useDispatch } from 'react-redux';
 import TaskForm from './TaskForm'
@@ -8,8 +8,7 @@ import { addTask } from '../services/actions/taskActions';
 
 const TaskAdd = () => {
     const dispatch = useDispatch()
-
-
+    const navigate = useNavigate()
 
     const TaskSchema = Yup.object().shape({
         title: Yup.string()
@@ -58,6 +57,7 @@ const TaskAdd = () => {
                     dispatch(
                         addTask(values)
                     )
+                    navigate('/')
                 }}
             >
                 {(props) => {

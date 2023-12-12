@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import { useDispatch } from 'react-redux';
 import TaskForm from './TaskForm'
@@ -10,6 +10,7 @@ import { updateTask } from '../services/actions/taskActions';
 const TaskEdit = () => {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const location = useLocation()
 
   const indexNumber = location?.pathname?.split("/")[2];
@@ -73,6 +74,7 @@ const TaskEdit = () => {
           dispatch(
             updateTask(values, indexNumber)
           )
+          navigate('/')
         }}
       >
         {(props) => {
