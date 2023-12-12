@@ -76,7 +76,6 @@ const TaskEdit = () => {
         }}
       >
         {(props) => {
-          console.log('props', props)
           return (
             <TaskForm
               {...props}

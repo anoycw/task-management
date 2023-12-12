@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import swal from 'sweetalert';
 import { removeTask, updateTask } from '../services/actions/taskActions';
 import TaskFilter from './TaskFilter';
+import moment from 'moment';
 
 const TaskList = () => {
     const dispatch = useDispatch()
@@ -24,7 +25,7 @@ const TaskList = () => {
             { id: "id", label: "#" },
             { id: "title", label: "Task Title" },
             { id: "description", label: "Description" },
-            { id: "date", label: "Date" },
+            { id: "date", label: "Date - Time" },
             { id: "status", label: "Status" },
             { id: "actions", label: "Actions" },
         ],
@@ -80,7 +81,8 @@ const TaskList = () => {
                                 <td>{index + 1}</td>
                                 <td>{row?.title || "N/F"}</td>
                                 <td>{row?.description || "N/F"}</td>
-                                <td>{row?.taskdate} {" "} {row?.taskTime}</td>
+                                {/* <td>{row?.taskdate} {" "} {row?.taskTime}</td> */}
+                                <td>{moment(row?.taskdate)?.format("DD-MM-YYYY")} {" - "} {row?.taskTime}</td>
                                 <td >
                                     <span className={row?.taskStatus == true ? 'bg-success text-white p-2' : 'bg-warning text-white p-2'} style={{ borderRadius: "0.375rem", display: "flex", justifyContent: "center" }}>   {
                                         row?.taskStatus == true ? "Completd" : "Active"

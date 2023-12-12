@@ -11,7 +11,6 @@ const TaskFilter = ({ setFilteredData }) => {
             }}
         >
             {({ values, setFieldValue }) => (
-                console.log('values', values),
                 <Form>
                     <div className='row'>
                         <div className='col-lg-3 col-sm-12 form-group'>
