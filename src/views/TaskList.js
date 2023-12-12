@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BasicTable from '../components/BasicTable/BasicTable'
 import { Link, useNavigate } from "react-router-dom";
 import CrudAction from '../components/CrudAction/CrudAction';
@@ -13,11 +13,14 @@ const TaskList = () => {
     const navigate = useNavigate()
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [size, setSize] = useState(2)
+    const [size, setSize] = useState(2);
+    const [total, setTotal] = useState(0)
     const [filteredData, setFilteredData] = useState(null);
 
     // Get Data from Redux Store
     const tasks = useSelector((state) => state.tasks);
+
+
 
     const tableProps = {
         headers: [
@@ -31,6 +34,20 @@ const TaskList = () => {
         ],
 
     };
+
+
+    const getFilteredData = () => {
+        let tempTask = tasks?.filter((item) => {
+            return !filteredData || filteredData?.taskStatus == '' || filteredData?.taskStatus == JSON.stringify(item?.taskStatus);
+        })
+        setCurrentPage(1)
+        setTotal(tempTask?.length)
+    }
+
+
+    useEffect(() => {
+        getFilteredData()
+    }, [tasks, filteredData])
 
     return (
         <div>
@@ -58,7 +75,7 @@ const TaskList = () => {
 
             <div className='table-responsive mt-3'>
                 <BasicTable {...tableProps}
-                    total={tasks?.length}
+                    total={total}
                     setCurrentPage={setCurrentPage}
                     currentPage={currentPage}
                     setSize={setSize}
@@ -66,7 +83,8 @@ const TaskList = () => {
 
                 >
                     {tasks !== undefined && tasks?.length > 0 && tasks?.reduce((pv, row, index) => {
-                        return [...pv, ...(!filteredData || filteredData?.taskStatus == '' || filteredData?.taskStatus == JSON.stringify(row?.taskStatus) ? [(
+                        if (!filteredData || filteredData?.taskStatus == '' || filteredData?.taskStatus == JSON.stringify(row?.taskStatus)) {
+                            pv = [...pv,
                             < tr key={index} >
                                 <td>
                                     <input checked={row?.taskStatus == true} type="checkbox" id="task" onClick={(e) => {
@@ -78,7 +96,7 @@ const TaskList = () => {
                                         )
                                     }} />
                                 </td>
-                                <td>{index + 1}</td>
+                                <td>{pv?.length + 1}</td>
                                 <td>{row?.title || "N/F"}</td>
                                 <td>{row?.description || "N/F"}</td>
                                 <td>{moment(row?.taskdate)?.format("DD-MM-YYYY")} {" - "} {row?.taskTime}</td>
@@ -106,12 +124,10 @@ const TaskList = () => {
                                     />
                                 </td>
                             </tr>
-
-
-                        )] : [])
-                        ]
+                            ]
+                        }
+                        return pv;
                     }, []
-
                     ).slice((currentPage - 1) * size, currentPage * size)
                     }
                 </BasicTable>
