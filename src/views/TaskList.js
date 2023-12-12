@@ -11,6 +11,8 @@ const TaskList = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [size, setSize] = useState(2)
     const [filteredData, setFilteredData] = useState(null);
 
     // Get Data from Redux Store
@@ -54,7 +56,14 @@ const TaskList = () => {
             </div>
 
             <div className='table-responsive mt-3'>
-                <BasicTable {...tableProps}  >
+                <BasicTable {...tableProps}
+                    total={tasks?.length}
+                    setCurrentPage={setCurrentPage}
+                    currentPage={currentPage}
+                    setSize={setSize}
+                    size={size}
+
+                >
                     {tasks !== undefined && tasks?.length > 0 && tasks?.reduce((pv, row, index) => {
                         return [...pv, ...(!filteredData || filteredData?.taskStatus == '' || filteredData?.taskStatus == JSON.stringify(row?.taskStatus) ? [(
                             < tr key={index} >
@@ -69,12 +78,12 @@ const TaskList = () => {
                                     }} />
                                 </td>
                                 <td>{index + 1}</td>
-                                <td>{row?.title?.toUpperCase() || "N/F"}</td>
-                                <td>{row?.description?.toUpperCase() || "N/F"}</td>
+                                <td>{row?.title || "N/F"}</td>
+                                <td>{row?.description || "N/F"}</td>
                                 <td>{row?.taskdate} {" "} {row?.taskTime}</td>
                                 <td >
                                     <span className={row?.taskStatus == true ? 'bg-success text-white p-2' : 'bg-warning text-white p-2'} style={{ borderRadius: "0.375rem", display: "flex", justifyContent: "center" }}>   {
-                                        row?.taskStatus == true ? "COMPLETED" : "ACTIVE"
+                                        row?.taskStatus == true ? "Completd" : "Active"
                                     }</span>
                                 </td>
                                 <td>
@@ -102,7 +111,7 @@ const TaskList = () => {
                         ]
                     }, []
 
-                    )
+                    ).slice((currentPage - 1) * size, currentPage * size)
                     }
                 </BasicTable>
             </div>
