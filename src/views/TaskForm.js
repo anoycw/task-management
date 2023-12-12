@@ -3,7 +3,6 @@ import { Field, Form } from 'formik';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 
 const TaskForm = ({ values, formType, errors, getFieldProps }) => {
-    console.log('values', values)
     return (
         <Form>
             <div className='row'>

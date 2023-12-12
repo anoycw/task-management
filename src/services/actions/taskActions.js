@@ -5,7 +5,7 @@ import {
     FETCH_TASKS
 } from "./types";
 
-export const addItask = (item) => ({
+export const addTask = (item) => ({
     type: ADD_TASK,
     payload: item,
 });

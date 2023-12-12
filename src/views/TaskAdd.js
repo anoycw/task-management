@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import { useDispatch } from 'react-redux';
 import TaskForm from './TaskForm'
 import * as Yup from 'yup';
-import { addItask } from '../services/actions/taskActions';
+import { addTask } from '../services/actions/taskActions';
 
 const TaskAdd = () => {
     const dispatch = useDispatch()
@@ -54,9 +54,8 @@ const TaskAdd = () => {
                 validationSchema={TaskSchema}
                 onSubmit={(values) => {
                     dispatch(
-                        addItask(values)
+                        addTask(values)
                     )
-                    // alert("hi...")
                 }}
             >
                 {(props) => {

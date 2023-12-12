@@ -7,7 +7,6 @@ const TaskFilter = ({ setFilteredData }) => {
             initialValues={{ taskStatus: "" }}
 
             onSubmit={(values, { setSubmitting }) => {
-                // console.log('setSubmitting', values)
                 setFilteredData(values)
             }}
         >
