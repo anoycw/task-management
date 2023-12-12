@@ -110,7 +110,7 @@ const TaskList = () => {
                                         onEditClick={() => navigate(`tasks/${index}/edit?title=${row?.title}&description=${row?.description}&taskDate=${row?.taskdate}&taskTime=${row?.taskTime}`)}
                                         onDeleteClick={() => swal({
                                             title: "Are you sure?",
-                                            text: "Are you sure that you want to leave this page?",
+                                            text: "Are you sure that you want to Delete this Task ?",
                                             icon: "warning",
                                             dangerMode: true,
                                         })
