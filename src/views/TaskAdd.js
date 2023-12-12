@@ -30,7 +30,9 @@ const TaskAdd = () => {
         <div>
             <div className='row'>
                 <div className='col-lg-6 col-sm-12'>
-
+                    <span className='color-orange h5 fw-bold'>
+                        Create New Task
+                    </span>
                 </div>
                 <div className='col-lg-6 col-sm-12'>
 

@@ -9,8 +9,6 @@ const Pagination = (props) => {
         setSize
     } = props;
 
-    // const size = 1;
-
 
     return (
         <>
