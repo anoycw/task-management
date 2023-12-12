@@ -13,11 +13,11 @@ const TaskAdd = () => {
     const TaskSchema = Yup.object().shape({
         title: Yup.string()
             .min(2, 'Too Short!')
-            .max(50, 'Too Long!')
+            .max(100, 'Too Long!')
             .required('Task Title is Required'),
         description: Yup.string()
             .min(2, 'Too Short!')
-            .max(50, 'Too Long!')
+            .max(250, 'Too Long!')
             .required('Task Description is Required'),
         taskdate: Yup.string().required('Task Completion Date is Required'),
         taskTime: Yup.string().required('Task Completion Time is Required'),
