@@ -15,7 +15,7 @@ const TaskFilter = ({ setFilteredData }) => {
                 <Form>
                     <div className='row'>
                         <div className='col-lg-3 col-sm-12 form-group'>
-                            <label htmlFor="title">Task Status</label>
+                            <label className='mb-2' htmlFor="title">Task Status</label>
 
 
                             <select
@@ -39,8 +39,8 @@ const TaskFilter = ({ setFilteredData }) => {
 
                         </div>
 
-                        <div className='col-lg-2 col-sm-12 pt-4 form-group'>
-                            <button type="submit" className='btn btn-success form-control' >Filter</button>
+                        <div className='col-lg-2 col-sm-12 pt-4 form-group mt-2'>
+                            <button type="submit" className='btn btn-primary form-control' >Filter</button>
                         </div>
                     </div>
 

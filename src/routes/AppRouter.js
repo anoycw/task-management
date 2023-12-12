@@ -7,13 +7,17 @@ import TaskEdit from "../views/TaskEdit";
 
 const AppRouter = () => {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path='/' element={<TaskList />} />
-                <Route path="tasks" element={<TaskAdd />} />
-                <Route path="tasks/:id/edit" element={<TaskEdit />} />
-            </Routes>
-        </BrowserRouter>
+        <div className='container mt-5 main mb-5'>
+            <div className='inner-box'>
+                <BrowserRouter >
+                    <Routes>
+                        <Route path='/' element={<TaskList />} />
+                        <Route path="tasks" element={<TaskAdd />} />
+                        <Route path="tasks/:id/edit" element={<TaskEdit />} />
+                    </Routes>
+                </BrowserRouter>
+            </div>
+        </div>
     )
 }
 

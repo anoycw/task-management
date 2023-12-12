@@ -35,7 +35,7 @@ const TaskAdd = () => {
                 <div className='col-lg-6 col-sm-12'>
 
                     <Link to="/">
-                        <button className='btn btn-success float-end' >
+                        <button className='btn btn-style-one float-end' >
                             Task List
                         </button>
                     </Link>

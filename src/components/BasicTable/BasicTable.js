@@ -6,8 +6,8 @@ const BasicTable = (props) => {
         children
     } = props
     return (
-        <table class="table table-sm">
-            <thead>
+        <table class="user-table align-items-center table table-striped table-hover text-center">
+            <thead className='' >
                 <tr>
                     {
                         headers !== undefined && headers?.map((header, headerIndex) => {
@@ -29,7 +29,7 @@ const BasicTable = (props) => {
                     <tr>
                         {" "}
                         <td colSpan={22} className="text-center">
-                            <span className="fw-bold h6 text-danger">
+                            <span className="fw-bold h6 color-orange">
                                 NO DATA FOUND
                             </span>
                         </td>{" "}

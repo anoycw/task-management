@@ -1,3 +1,104 @@
-.tuntuni{
-    background-color: red;
+$orange: #f15d52;
+.header-bg {
+  // background: linear-gradient(to left, #3a7bd5, #3a6073) !important;
+  background: #ffffff;
+  z-index: 0;
+  border-bottom: 1px solid #e8f1f7;
+}
+.main {
+  position: relative;
+  background-color: #f9f9f9;
+  min-height: 500px;
+  box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.1);
+}
+.inner-box {
+  position: relative;
+  padding: 40px 40px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.1);
+}
+.title {
+  position: relative;
+  color: #f15d52;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+.btn-style-one {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 30px;
+  color: #ffffff !important;
+  font-weight: 400;
+  overflow: hidden;
+  background: none;
+  border-radius: 4px;
+  padding: 13px 38px 13px;
+  background-color: #f15d52 !important;
+  text-transform: capitalize;
+}
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  border-color: white;
+  border-style: solid;
+  border-width: 1px;
+}
+.table td,.table th {
+    padding: 0.75rem;
+    white-space: nowrap;
+}
+tbody tr{
+    // display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.table {
+  --bs-table-color: #4a5073;
+  --bs-table-bg: transparent;
+  --bs-table-border-color: #eaedf2;
+  --bs-table-accent-bg: transparent;
+  --bs-table-striped-color: #4a5073;
+  --bs-table-striped-bg: rgba(46, 54, 80, 0.05);
+  --bs-table-active-color: #4a5073;
+  --bs-table-active-bg: rgba(46, 54, 80, 0.1);
+  --bs-table-hover-color: #4a5073;
+  --bs-table-hover-bg: rgba(46, 54, 80, 0.075);
+  width: 100%;
+  margin-bottom: 1rem;
+  color: var(--bs-table-color);
+  vertical-align: top;
+  border-color: var(--bs-table-border-color);
+}
+.user-table thead {
+  background-color: rgb(1, 87, 155);
+  color: whitesmoke;
+}
+.table thead th {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-top: 0;
+  background-color: #3a74bc;
+  color: white !important;
+}
+.color-orange {
+  color: $orange;
+}
+.footer-bottom {
+  background: #ffffff;
+  z-index: 0;
+  border-top: 1px solid #e8f1f7;
+  padding: 10px;
+  // text-align: center;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  width: 100%;
 }
